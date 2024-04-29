@@ -16,7 +16,7 @@ load_dotenv()
 
 st.title("News Research ChatBot")
 main_progress_bar = st.empty()
-file_path = "faiss_store_openai.pkl"
+file_path = "db"
 
 # Conversation chain
 def get_context_retriever_chain(retriever):
@@ -88,7 +88,7 @@ with st.sidebar:
         embeddings = OpenAIEmbeddings()
         sidebar_progress.text("Embedding Vector Started Building...")
         vectorstore_openai = FAISS.from_documents(docs, embeddings)
-        vectorstore_openai.save_local(folder_path="db")
+        vectorstore_openai.save_local(folder_path=file_path)
         sidebar_progress.empty()
 
 if os.path.exists(file_path):
@@ -98,7 +98,7 @@ if os.path.exists(file_path):
             AIMessage(content="Hello, I am a bot. How can I help you?")
         ]
     if 'retriever' not in st.session_state:
-        vectorstore = FAISS.load_local(folder_path="db", embeddings=OpenAIEmbeddings(), allow_dangerous_deserialization=True)
+        vectorstore = FAISS.load_local(folder_path=file_path, embeddings=OpenAIEmbeddings(), allow_dangerous_deserialization=True)
         st.session_state.retriever = vectorstore.as_retriever()
 
     query = st.chat_input("Type your query here...")

@@ -4,6 +4,4 @@ streamlit
 openai
 python-dotenv
 faiss-cpu
-unstructured
-tiktoken
 beautifulsoup4
