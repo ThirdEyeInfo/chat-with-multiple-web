@@ -15,6 +15,6 @@
 - Add below line in .env file
     * OPENAI_API_KEY="Supply your secret token here"
 - Run Multiple PDF File Reader with below command
-    * streamlit run main.py --server.port 8080
+    * streamlit run app-v*.py --server.port 8080
 - Open http://localhost:8080/ on your favorite browser
     * Upload any number of pdf files and ask question related to that
