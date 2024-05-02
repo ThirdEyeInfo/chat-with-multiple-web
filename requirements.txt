@@ -1,7 +1,11 @@
 langchain
-langchain-openai
-streamlit
+langchain_openai
 openai
+langchain_google_genai
+google-generativeai
+huggingface_hub
+streamlit
 python-dotenv
 faiss-cpu
 beautifulsoup4
+tiktoken
