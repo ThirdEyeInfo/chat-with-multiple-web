@@ -17,4 +17,4 @@
 - Run Multiple PDF File Reader with below command
     * streamlit run app-v*.py --server.port 8080
 - Open http://localhost:8080/ on your favorite browser
-    * Upload any number of pdf files and ask question related to that
+    * Supply news articles websites and chat with AI
