@@ -18,3 +18,7 @@
     * streamlit run app-v*.py --server.port 8080
 - Open http://localhost:8080/ on your favorite browser
     * Supply news articles websites and chat with AI
+
+## Application Overview
+![image](https://github.com/ThirdEyeInfo/chat-with-multiple-web/assets/93641638/03d5daf1-a1d4-460d-8105-3eaea064bd2d)
+
