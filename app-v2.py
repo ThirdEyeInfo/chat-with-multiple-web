@@ -28,7 +28,7 @@ def get_context_retriever_chain(retriever):
         ("user", "Given the above conversation, generate a search query to look up in order to get information relevant to this conversation")
     ])
 
-    main_progress_bar.text("██████ 30%")
+    main_progress_bar.text(":green[██████] 30%")
     history_document = create_history_aware_retriever(llm, retriever, prompt)
 
     return history_document
@@ -43,10 +43,10 @@ def get_conversational_rag_chain(history_document):
         ("user", "{input}")
     ])
 
-    main_progress_bar.text("█████████ 45%")
+    main_progress_bar.text(":green[█████████] 45%")
     stuff_documents_chains = create_stuff_documents_chain(llm, prompt)
 
-    main_progress_bar.text("████████████ 60%")
+    main_progress_bar.text(":green[████████████] 60%")
     retrieval_chain = create_retrieval_chain(history_document, stuff_documents_chains)
 
     return retrieval_chain
@@ -56,7 +56,7 @@ def get_response(user_query):
     history_document = get_context_retriever_chain(st.session_state.retriever)
     retrieval_chain = get_conversational_rag_chain(history_document)
 
-    main_progress_bar.text("████████████████ 78%")
+    main_progress_bar.text(":green[████████████████] 78%")
     response = retrieval_chain.invoke({
         "chat_history": st.session_state.chat_history,
         "input": user_query
@@ -131,7 +131,7 @@ if os.path.exists(embedding_type):
         st.session_state.chat_history.append(HumanMessage(content=query))
         st.session_state.chat_history.append(AIMessage(content=response))
 
-    main_progress_bar.text("████████████████████ 99%")
+    main_progress_bar.text(":green[████████████████████] 99%")
     for message in st.session_state.chat_history:
         if isinstance(message, AIMessage):
             with st.chat_message("AI"):
